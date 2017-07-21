@@ -50,7 +50,9 @@ const app = new Vue({
       }
     },
     changeFilename: function (index) {
-      this.content.anwsers[index].filename = this.content.students[index].filename;
+      if (index != 0) {
+        this.content.anwsers[index].filename = this.content.students[index].filename;
+      }
     },
     sendResult: function () {
       alert('您輸入的資料 JSON 格式：' + JSON.stringify(this.content));
