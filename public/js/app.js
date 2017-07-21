@@ -35381,12 +35381,14 @@ var app = new Vue({
       } else {
         var new_filename = 'file' + parseInt(length + 1) + '.txt';
       }
-      var data = {
-        filename: new_filename,
-        text: ''
+      var data = function data() {
+        return {
+          filename: new_filename,
+          text: ''
+        };
       };
-      this.content.students.push(data);
-      this.content.anwsers.push(data);
+      this.content.students.push(data());
+      this.content.anwsers.push(data());
     },
     deleteFile: function deleteFile(index) {
       if (index != 0) {
@@ -35397,7 +35399,9 @@ var app = new Vue({
       }
     },
     changeFilename: function changeFilename(index) {
-      this.content.anwsers[index].filename = this.content.students[index].filename;
+      if (index != 0) {
+        this.content.anwsers[index].filename = this.content.students[index].filename;
+      }
     },
     sendResult: function sendResult() {
       alert('您輸入的資料 JSON 格式：' + JSON.stringify(this.content));

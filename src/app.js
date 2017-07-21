@@ -34,12 +34,14 @@ const app = new Vue({
       } else {
         var new_filename = 'file' + parseInt(length + 1) + '.txt';
       }
-      var data = {
-        filename: new_filename,
-        text: ''
+      var data = function() {
+        return {
+          filename: new_filename,
+          text: ''
+        }
       };
-      this.content.students.push(data);
-      this.content.anwsers.push(data);
+      this.content.students.push(data());
+      this.content.anwsers.push(data());
     },
     deleteFile: function (index) {
       if (index != 0) {
