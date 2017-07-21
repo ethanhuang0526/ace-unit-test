@@ -16,14 +16,14 @@
               <button @click="deleteFile(index)" >刪除</button>
             </p>
 
-            <editor v-model="content.students[index].text" @init="editorInit();" lang="html" theme="chrome" width="100%" height="100"></editor>
+            <editor v-model="content.students[index].text" @init="editorInit();" :lang="student.extension" theme="chrome" width="100%" height="100"></editor>
           </div>
         </div>
         <div class="col-md-12">
           <h2>正確答案</h2>
           <div v-for="(anwsers, index) in content.anwsers" class="col-md-3">
             <p>檔案 {{ parseInt(index) + 1 }} 名稱：<input type="text" disabled :value="anwsers.filename"></p>
-            <editor v-model="content.anwsers[index].text" @init="editorInit();" lang="html" theme="chrome" width="100%" height="100"></editor>
+            <editor v-model="content.anwsers[index].text" @init="editorInit();" :lang="anwsers.extension" theme="chrome" width="100%" height="100"></editor>
           </div>
         </div>
 
@@ -31,7 +31,7 @@
           <h2>測試檔案</h2>
           <div  class="col-md-3">
             <p>檔案名稱：<input type="text" disabled :value="content.tests.filename"></p>
-            <editor v-model="content.tests.text" @init="editorInit();" lang="html" theme="chrome" width="100%" height="100"></editor>
+            <editor v-model="content.tests.text" @init="editorInit();" :lang="content.tests.extension" theme="chrome" width="100%" height="100"></editor>
           </div>
         </div>
       </div>

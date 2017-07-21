@@ -6,19 +6,22 @@ const app = new Vue({
     content: {
       students: [
         {
-          filename: 'example.php',
-          text: ''
+          filename: 'example.py',
+          text: '',
+          extension: 'python'
         },
       ],
       anwsers: [
         {
-          filename: 'example.php',
-          text: ''
+          filename: 'example.py',
+          text: '',
+          extension: 'python'
         }
       ],
       tests: {
-        filename: 'test.php',
-        text: ''
+        filename: 'test.py',
+        text: '',
+        extension: 'python'
       }
     }
   },
@@ -37,7 +40,8 @@ const app = new Vue({
       var data = function() {
         return {
           filename: new_filename,
-          text: ''
+          text: '',
+          extension: 'text'
         }
       };
       this.content.students.push(data());
@@ -63,6 +67,9 @@ const app = new Vue({
       require('brace/mode/html');
       require('brace/mode/javascript');
       require('brace/mode/css');
+      require('brace/mode/php');
+      require('brace/mode/python');
+      require('brace/mode/text');
       require('brace/theme/chrome');
     }
   }
