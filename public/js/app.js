@@ -35396,6 +35396,9 @@ var app = new Vue({
         alert('預設檔案不能刪除喔!');
       }
     },
+    changeFilename: function changeFilename(index) {
+      this.content.anwsers[index].filename = this.content.students[index].filename;
+    },
     sendResult: function sendResult() {
       alert('您輸入的資料 JSON 格式：' + JSON.stringify(this.content));
     },

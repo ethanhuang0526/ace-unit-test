@@ -12,7 +12,7 @@
           <div v-for="(student, index) in content.students"  class="col-md-3">
             <p>
               檔案 {{ parseInt(index) + 1 }} 名稱：
-              <input type="text" v-model="content.students[index].filename">
+              <input type="text" v-model="content.students[index].filename" @keyup="changeFilename(index)">
               <button @click="deleteFile(index)">x</button>
             </p>
 
