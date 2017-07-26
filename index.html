@@ -10,18 +10,18 @@
         <div class="col-md-12">
         <button @click="addFile('php')" class="btn btn-primary">新增檔案</button>
           <h2>學生檔案</h2>
-          <div v-for="(student, index) in content.students"  class="col-md-3">
+          <div v-for="(user_file, index) in content.user_files"  class="col-md-3">
             <p>
               檔案 {{ parseInt(index) + 1 }} 名稱：
-              <input type="text" v-model="content.students[index].filename" @keyup="changeFilename(index)" :disabled="index == 0">
+              <input type="text" v-model="content.user_files[index].filename" @keyup="changeFilename(index)" :disabled="index == 0">
               <button @click="deleteFile(index)" >刪除</button>
             </p>
 
-            <editor v-model="content.students[index].text" @init="editorInit();" :lang="student.extension" theme="chrome" width="100%" height="100"></editor>
+            <editor v-model="content.user_files[index].text" @init="editorInit();" :lang="user_file.extension" theme="chrome" width="100%" height="100"></editor>
           </div>
         </div>
         <div class="col-md-12">
-          <h2>正確答案</h2>
+          <h2>解決方案檔案</h2>
           <div v-for="(anwsers, index) in content.anwsers" class="col-md-3">
             <p>檔案 {{ parseInt(index) + 1 }} 名稱：<input type="text" disabled :value="anwsers.filename"></p>
             <editor v-model="content.anwsers[index].text" @init="editorInit();" :lang="anwsers.extension" theme="chrome" width="100%" height="100"></editor>
@@ -29,10 +29,10 @@
         </div>
 
         <div class="col-md-12">
-          <h2>測試檔案</h2>
+          <h2>評估檔案</h2>
           <div  class="col-md-3">
-            <p>檔案名稱：<input type="text" disabled :value="content.tests.filename"></p>
-            <editor v-model="content.tests.text" @init="editorInit();" :lang="content.tests.extension" theme="chrome" width="100%" height="100"></editor>
+            <p>檔案名稱：<input type="text" disabled :value="content.test_files.filename"></p>
+            <editor v-model="content.test_files.text" @init="editorInit();" :lang="content.test_files.extension" theme="chrome" width="100%" height="100"></editor>
           </div>
         </div>
       </div>

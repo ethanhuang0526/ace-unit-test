@@ -48954,18 +48954,18 @@ var app = new Vue({
   el: '#app',
   data: {
     content: {
-      students: [{
-        filename: 'example.py',
+      user_files: [{
+        filename: 'exercise.py',
         text: '',
         extension: 'python'
       }],
       anwsers: [{
-        filename: 'example.py',
+        filename: 'exercise.py',
         text: '',
         extension: 'python'
       }],
-      tests: {
-        filename: 'test.py',
+      test_files: {
+        filename: 'evaluate.py',
         text: '',
         extension: 'python'
       }
@@ -48976,7 +48976,7 @@ var app = new Vue({
   },
   methods: {
     addFile: function addFile(default_extension) {
-      var length = this.content.students.length;
+      var length = this.content.user_files.length;
       var new_filename = '';
       if (length == 0) {
         new_filename = 'example' + '.' + extension;
@@ -48990,12 +48990,12 @@ var app = new Vue({
           extension: 'text'
         };
       };
-      this.content.students.push(data());
+      this.content.user_files.push(data());
       this.content.anwsers.push(data());
     },
     deleteFile: function deleteFile(index) {
       if (index != 0) {
-        this.content.students.splice(index, 1);
+        this.content.user_files.splice(index, 1);
         this.content.anwsers.splice(index, 1);
       } else {
         alert('預設檔案不能刪除喔!');
@@ -49003,7 +49003,7 @@ var app = new Vue({
     },
     changeFilename: function changeFilename(index) {
       if (index != 0) {
-        this.content.anwsers[index].filename = this.content.students[index].filename;
+        this.content.anwsers[index].filename = this.content.user_files[index].filename;
       }
     },
     sendResult: function sendResult() {
